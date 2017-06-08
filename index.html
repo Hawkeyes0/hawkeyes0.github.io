@@ -12,7 +12,7 @@ title: 风华旋舞
     </header>
     {{post.excerpt}}
     <footer>
-        <p>Tags: {%for tag in post.tags%}{{tag.name}}&nbsp;&nbsp;{%endfor%}
+        <p>Tags: {%for tag in post.tags%}{{tag}}&nbsp;&nbsp;{%endfor%}
         </p>
         <p class="more"><a href="{{post.url}}" title="Read More" rel="nofollow"><span>&#10149;</span>Read More</a></p>
     </footer>
