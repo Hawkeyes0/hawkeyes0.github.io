@@ -12,7 +12,7 @@ title: 风华旋舞
     </header>
     {{post.excerpt}}
     <footer>
-        {% if post.tags.count > 0 %}<p>Tags: {%for tag in post.tags%}{{tag}}&nbsp;&nbsp;{%endfor%}</p>{% endif %}
+        {% if post.tags.size > 0 %}<p>Tags: {%for tag in post.tags%}{{tag}}&nbsp;&nbsp;{%endfor%}</p>{% endif %}
         <p class="more"><a href="{{post.url}}" title="Read More" rel="nofollow"><span>&#10149;</span>Read More</a></p>
     </footer>
     </article>
@@ -20,5 +20,34 @@ title: 风华旋舞
         {% endfor %}
     {% else %}
     <p>没有文章</p>
+    {% endif %}
+    {% if paginator.total_pages > 1 %}
+        <div class="text-center">
+            <ul class="pagination">
+                {% if paginator.previous_page %}
+                    {% if paginator.previous_page == 1 %}
+                        <li><a href="{{ site.url }}/">&laquo;</a></li>
+                    {% else %}
+                        <li><a href="{{ site.url }}{{ paginator.previous_page_path }}/">&laquo;</a></li>
+                    {% endif %}
+                {% else %}
+                    <li class="disabled"><span>&laquo;</span></li>
+                {% endif %}
+                {% for page in (1..paginator.total_pages) %}
+                    {% if page == paginator.page %}
+                        <li class="active"><span>{{ page }}</span></li>
+                    {% elsif page == 1 %}
+                        <li><a href="{{ site.url }}/">1</a></li>
+                    {% else %}
+                        <li><a href="{{ site.url }}{{ site.paginate_path | replace: ':num', page }}/">{{ page }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if paginator.next_page %}
+                    <li><a href="{{ site.url }}{{ paginator.next_page_path }}/">&raquo;</a></li>
+                {% else %}
+                    <li class="disabled"><a href="#">&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
     {% endif %}
 </div>
