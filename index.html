@@ -1,10 +1,17 @@
 ---
+layout: default
 title: 风华旋舞
 ---
 <div id="post-content">
     {% if paginator.posts %}
         {% for post in paginator.posts %}
-    <h4><a href="{{site.url}}{{post.url}}">{{ post.title }}</a></h4>
+    <article>
+    <header><h4><a href="{{site.url}}{{post.url}}">{{ post.title }}</a></h4></header>
+    {{post.excerpt}}
+    <footer>
+        <p class="more"><a href="{{site.url}}{{post.url}}" title="Read More" rel="nofollow"><span>&#10149;</span>Read More</a></p>
+    </footer>
+    </article>
         {% endfor %}
     {% else %}
     <p>没有文章</p>
