@@ -51,40 +51,44 @@ solver.Run();
 当第三种情况发生时，表示已经得到了正确答案。
 
 ##### 变量
-|||
-|--|--|
-|_matrix|数独矩阵|
-|_blocks|按区块重新组织的矩阵|
-|_previou|上一次运算的结果|
-|_loopCounter|计算次数计数器|
-|_branchs|可能性分支|
+<table>
+<tbody>
+<tr><td>_matrix</td><td>数独矩阵</td></tr>
+<tr><td>_blocks</td><td>按区块重新组织的矩阵</td></tr>
+<tr><td>_previou</td><td>上一次运算的结果</td></tr>
+<tr><td>_loopCounter</td><td>计算次数计数器</td></tr>
+<tr><td>_branchs</td><td>可能性分支</td></tr>
+</tbody>
+</table>
 
 ##### 方法
-|||||
-|-|-|-|-|
-|internal|void|Run|运行主方法|
-|private|void|InputMatrix|输入数独矩阵|
-|private|void|SolveMatrix|尝试解决矩阵|
-|private|bool|IsWrong|判断矩阵的数值是否正确|
-|private|bool|CannotContinue|判断矩阵是否还能继续解算|
-|private|bool|Finished|判断矩阵是否所有元素都赋值了|
-|private|void|PushBranches|创建可能的分支|
-|private|void|PrintMatrix|打印矩阵|
-|private|Tuple|CloneFrom|复制矩阵|
-|private|void|ComputePossible|计算每个元素可能的值|
-|private|void|FillNumber|给可确定值的元素赋值|
-|private|void|ComputeRow|按行计算可能的值|
-|private|void|ComputeColumn|按列计算可能的值|
-|private|void|ComputeBlock|按区块计算可能的值|
-|private|void|FillCell|遍历所有元素，如果元素可能的值只有一个，则对该元素赋值|
-|private|void|FillRow|按行遍历所有元素，如果某元素可能的值在这一行的可能的值中唯一，则将该值赋给该元素|
-|private|void|FillColumn|按列遍历所有元素，如果某元素可能的值在这一列的可能的值中唯一，则将该值赋给该元素|
-|private|void|FillBlock|按区块遍历所有元素，如果某元素可能的值在这一区块的可能的值中唯一，则将该值赋给该元素|
-|private|void|ResetCounter|重置FillRow、FillColumn、FillBlock方法内所用的计数器|
-|private|bool|IsRowWrong|按行检查矩阵是否有错误|
-|private|bool|IsColumnWrong|按列检查矩阵是否有错误|
-|private|bool|IsBlockWrong|按区块检查矩阵是否有错误|
-|private|void|FillMatrix|根据输入的字符串和行索引填充矩阵|
+<table>
+<tbody>
+<tr><td>internal</td><td>void</td><td>Run</td><td>运行主方法</td></tr>
+<tr><td>private</td><td>void</td><td>InputMatrix</td><td>输入数独矩阵</td></tr>
+<tr><td>private</td><td>void</td><td>SolveMatrix</td><td>尝试解决矩阵</td></tr>
+<tr><td>private</td><td>bool</td><td>IsWrong</td><td>判断矩阵的数值是否正确</td></tr>
+<tr><td>private</td><td>bool</td><td>CannotContinue</td><td>判断矩阵是否还能继续解算</td></tr>
+<tr><td>private</td><td>bool</td><td>Finished</td><td>判断矩阵是否所有元素都赋值了</td></tr>
+<tr><td>private</td><td>void</td><td>PushBranches</td><td>创建可能的分支</td></tr>
+<tr><td>private</td><td>void</td><td>PrintMatrix</td><td>打印矩阵</td></tr>
+<tr><td>private</td><td>Tuple</td><td>CloneFrom</td><td>复制矩阵</td></tr>
+<tr><td>private</td><td>void</td><td>ComputePossible</td><td>计算每个元素可能的值</td></tr>
+<tr><td>private</td><td>void</td><td>FillNumber</td><td>给可确定值的元素赋值</td></tr>
+<tr><td>private</td><td>void</td><td>ComputeRow</td><td>按行计算可能的值</td></tr>
+<tr><td>private</td><td>void</td><td>ComputeColumn</td><td>按列计算可能的值</td></tr>
+<tr><td>private</td><td>void</td><td>ComputeBlock</td><td>按区块计算可能的值</td></tr>
+<tr><td>private</td><td>void</td><td>FillCell</td><td>遍历所有元素，如果元素可能的值只有一个，则对该元素赋值</td></tr>
+<tr><td>private</td><td>void</td><td>FillRow</td><td>按行遍历所有元素，如果某元素可能的值在这一行的可能的值中唯一，则将该值赋给该元素</td></tr>
+<tr><td>private</td><td>void</td><td>FillColumn</td><td>按列遍历所有元素，如果某元素可能的值在这一列的可能的值中唯一，则将该值赋给该元素</td></tr>
+<tr><td>private</td><td>void</td><td>FillBlock</td><td>按区块遍历所有元素，如果某元素可能的值在这一区块的可能的值中唯一，则将该值赋给该元素</td></tr>
+<tr><td>private</td><td>void</td><td>ResetCounter</td><td>重置FillRow、FillColumn、FillBlock方法内所用的计数器</td></tr>
+<tr><td>private</td><td>bool</td><td>IsRowWrong</td><td>按行检查矩阵是否有错误</td></tr>
+<tr><td>private</td><td>bool</td><td>IsColumnWrong</td><td>按列检查矩阵是否有错误</td></tr>
+<tr><td>private</td><td>bool</td><td>IsBlockWrong</td><td>按区块检查矩阵是否有错误</td></tr>
+<tr><td>private</td><td>void</td><td>FillMatrix</td><td>根据输入的字符串和行索引填充矩阵</td></tr>
+</tbody>
+</table>
 
 #### 4. 源代码
 [戳这里](https://github.com/Hawkeyes0/Sudoku)
