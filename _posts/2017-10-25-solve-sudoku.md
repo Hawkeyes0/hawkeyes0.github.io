@@ -2,7 +2,7 @@
 categories: program
 tags: dotnet core sudoku
 title: 解数独游戏
-date: 2017-08-09 17:30:00 +0800
+date: 2017-10-25 23:30:00 +0800
 ---
 ### 解数独游戏
 #### 0. 开发环境
